@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 0 0% 15%;
+    --card: 40 30% 96%;
+    --card-foreground: 0 0% 15%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 345 100% 25%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 43 74% 52%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 35 25% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 30 100% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 35 30% 85%;
+    --input: 35 30% 85%;
+    --ring: 43 74% 52%;
+    --radius: 0.75rem;
+
+    --gold: 43 74% 52%;
+    --gold-light: 43 80% 65%;
+    --gold-dark: 43 70% 40%;
+    --maroon: 345 100% 25%;
+    --maroon-light: 345 60% 35%;
+    --saffron: 30 100% 60%;
+    --spiritual-beige: 40 33% 97%;
+    --cosmic-dark: 240 20% 8%;
+
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-accent: 'Cormorant Garamond', serif;
+
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 52%), hsl(43 80% 65%), hsl(30 100% 60%));
+    --gradient-maroon: linear-gradient(135deg, hsl(345 100% 25%), hsl(345 60% 35%));
+    --gradient-cosmic: linear-gradient(180deg, hsl(240 20% 8%), hsl(240 15% 15%), hsl(240 20% 8%));
+    --shadow-gold: 0 0 30px hsl(43 74% 52% / 0.3);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.08);
+    --shadow-card-hover: 0 20px 60px hsl(0 0% 0% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+  /* Hide scrollbar globally */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background: var(--gradient-gold);
+    color: hsl(0 0% 10%);
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px hsl(43 74% 52% / 0.5);
+  }
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    border: 2px solid hsl(var(--gold));
+    color: hsl(var(--gold));
+  }
+  .btn-outline-gold:hover {
+    background: hsl(var(--gold) / 0.1);
+    transform: translateY(-2px);
+  }
+  .section-dark {
+    background: var(--gradient-cosmic);
+    color: hsl(40 33% 97%);
+  }
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-glow {
+    filter: drop-shadow(0 0 20px hsl(43 74% 52% / 0.4));
+  }
+  .card-spiritual {
+    @apply rounded-xl overflow-hidden transition-all duration-300;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-card);
+  }
+  .card-spiritual:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
